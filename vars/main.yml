@@ -1,0 +1,6 @@
+---
+# vars file for tomcat
+tomcat_url: https://downloads.apache.org/tomcat/tomcat-8/v8.5.61/bin/apache-tomcat-8.5.61.tar.gz
+java_home: /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre
+tomcat_home: /opt/apache-tomcat-8.5.61
+

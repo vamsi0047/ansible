@@ -1,0 +1,12 @@
+---
+- name: stopping tomcat
+  debug:
+    msg: "stopping the tomcat service"
+  notify:
+  - stopping tomcat service
+- name: copying the war file
+  copy:
+    src: webapp.war
+    dest: /opt/apache-tomcat-8.5.61/webapps/
+  notify: 
+  - restart tomcat service

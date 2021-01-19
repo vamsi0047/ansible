@@ -1,0 +1,29 @@
+- name: create a group tomcat
+  group:
+    name: tomcat
+    state: present
+- name: creata a user tomcat 
+  user:
+    name: tomcat
+    comment: tomcat user
+    group: tomcat
+- name: downloading the tomcat 
+  get_url:
+    url: "{{ tomcat_url }}"
+    dest: /tmp
+- name: unzipping the tomcat
+  unarchive:
+    src: /tmp/{{ tomcat_url.split('/')[-1] }}
+    dest: /opt
+    remote_src: yes
+- name: updating th permissions
+  file:
+    path: /opt/apache-tomcat-8.5.61
+    state: directory
+    recurse: yes
+    owner: tomcat
+    group: tomcat
+- name: setting up tomcat as a service
+  template:
+    src: tomcat.service.j2
+    dest: /etc/systemd/system/tomcat.service

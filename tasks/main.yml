@@ -1,0 +1,6 @@
+---
+# tasks file for tomcat
+- name: excuting tomcat playbook
+  include_tasks: tomcat.yaml
+- name: excuting deploying playbook
+  include_tasks: deploying.yaml
