@@ -1,0 +1,9 @@
+---
+- name: installing the openjdk
+  apt:
+    name: openjdk-8-jre
+    state: present
+- name: settingup alternative
+  alternatives:
+    name: java
+    path: /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java

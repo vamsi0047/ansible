@@ -1,6 +1,8 @@
 ---
 # tasks file for tomcat
-- name: excuting tomcat playbook
+- name: excuting steps to install java
+  include_tasks: java_install.yaml
+- name: excuting steps to install tomcat
   include_tasks: tomcat.yaml
-- name: excuting deploying playbook
+- name: excuting steps to deploy war file
   include_tasks: deploying.yaml
